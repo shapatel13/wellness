@@ -71,7 +71,8 @@ class SoulSpaceWellnessBot:
                 id="llama-3.3-70b-versatile", 
                 temperature=0.6, 
                 max_tokens=2048,  # Set max tokens to 2048
-                top_p=0.95
+                top_p=0.95,
+                api_key=st.secrets["GROQ_API_KEY"]
             ),
             description="An expert clinical psychologist specializing in evidence-based wellness approaches with deep knowledge of research literature.",
             instructions=self._get_instructions(),
@@ -124,20 +125,20 @@ class SoulSpaceWellnessBot:
         return self.agent.run(prompt)
 
 def get_wellness_suggestions():
-    """Return a list of suggested wellness topics for quick prompts."""
+    """Return a list of suggested wellness topics with emojis."""
     return [
-        "Sleep & racing thoughts",
-        "Social anxiety",
-        "Digital boundaries",
-        "Chest tightness & stress",
-        "Mindfulness with ADHD",
-        "Inner critic",
-        "Work burnout",
-        "Catastrophizing",
-        "Beginning meditation",
-        "Anxiety breathing",
-        "Is my anxiety clinical?",
-        "Grounding techniques"
+        "😴 Sleep",
+        "🗣️ Social anxiety",
+        "📱 Digital habits",
+        "💓 Stress",
+        "🧠 ADHD focus",
+        "🔉 Inner critic",
+        "⚡ Burnout",
+        "😰 Worrying",
+        "🧘 Meditation",
+        "🫁 Breathing",
+        "❓ Normal anxiety",
+        "🛟 Grounding"
     ]
 
 def initialize_chat_history():
@@ -149,7 +150,7 @@ def initialize_chat_history():
 
 def main():
     # App title and description
-    st.title("🧘‍♀️ Soul Space Wellness Guide | Evidence-Based Mental Health Support")
+    st.title("🧘‍♀️ Wellness Guide | Evidence-Based Mental Health Support")
     st.markdown("""
     > Combining modern psychology, neuroscience, and mindfulness to help you navigate anxiety, stress, and digital wellbeing.
     """)
