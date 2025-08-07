@@ -68,7 +68,7 @@ class SoulSpaceWellnessBot:
         # Initialize agent with Groq model and built-in memory
         self.agent = Agent(
             model=Groq(
-                id="openai/gpt-oss-20b", 
+                id="openai/gpt-oss-120b", 
                 temperature=0.6, 
                 max_tokens=2048,  # Set max tokens to 2048
                 top_p=0.95,
@@ -270,4 +270,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
